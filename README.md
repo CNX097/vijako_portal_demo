@@ -17,6 +17,16 @@ app launcher chung và đăng nhập một lần.
 | 03 | [Kiến trúc & kỹ thuật](docs/03-kien-truc-ky-thuat.md) | Kiến trúc, công nghệ, dữ liệu, phân quyền, workflow engine, tích hợp, bảo mật, hạ tầng |
 | 04 | [Lộ trình triển khai](docs/04-lo-trinh-trien-khai.md) | Các giai đoạn, Gantt, ước lượng nỗ lực, đội dự án, chuyển đổi dữ liệu, rủi ro, chỉ số thành công |
 
+## Bản demo bấm thử
+
+Thư mục [`demo/`](demo/README.md) chứa bản demo giao diện (React + TypeScript + Ant Design, dữ liệu mẫu, không cần backend):
+app launcher 20 module theo ảnh tham chiếu, **Nhân sự**, **Đơn từ**, **Chấm công** (GPS geofence + bảng công) và
+**Quy trình** (biểu mẫu động, luồng duyệt rẽ nhánh), đổi vai trò người dùng để thử toàn bộ luồng phê duyệt.
+
+```bash
+cd demo && npm install && npm run dev   # http://localhost:5173
+```
+
 ## Bản đồ module
 
 | Nhóm | Module | Mô tả ngắn | Giai đoạn |

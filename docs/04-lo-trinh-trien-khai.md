@@ -214,5 +214,5 @@ Chỉ tiêu cụ thể xem [01 — Tổng quan](01-tong-quan-pham-vi.md#chỉ-ti
 2. Chọn phương án đội dự án (A / B, in-house hay thuê ngoài) và duyệt ngân sách.
 3. Chọn nhà cung cấp hạ tầng cloud, CA ký số, I-VAN.
 4. Chỉ định nhà tài trợ dự án, Product Owner, key user; tổ chức kick-off.
-5. Dựng **bản demo click-through** trong repo này (`vijako_portal_demo`): app launcher theo ảnh tham chiếu, hồ sơ nhân viên,
+5. Dùng **bản demo click-through** trong repo này ([`demo/`](../demo/README.md)): app launcher theo ảnh tham chiếu, hồ sơ nhân viên,
    tạo – duyệt đơn từ, chấm công mobile, đề xuất theo quy trình — để BGĐ duyệt trải nghiệm trước khi phát triển thật.
