@@ -39,18 +39,18 @@ function fieldValue(f: FieldDef, v: unknown) {
           pagination={false}
           rowKey={(_, i) => String(i)}
           dataSource={items}
-          scroll={{ x: 420 }}
+          scroll={{ x: 560 }}
           columns={[
             { title: 'Vật tư', dataIndex: 'name' },
             { title: 'ĐVT', dataIndex: 'unit', width: 60 },
             { title: 'SL', dataIndex: 'qty', width: 60 },
-            { title: 'Đơn giá', dataIndex: 'price', render: (n: number) => fmtMoney(n) },
-            { title: 'Thành tiền', key: 't', render: (_, it) => fmtMoney((it.qty ?? 0) * (it.price ?? 0)) },
+            { title: 'Đơn giá', dataIndex: 'price', align: 'right', render: (n: number) => <span style={{ whiteSpace: 'nowrap' }}>{fmtMoney(n)}</span> },
+            { title: 'Thành tiền', key: 't', align: 'right', render: (_, it) => <span style={{ whiteSpace: 'nowrap' }}>{fmtMoney((it.qty ?? 0) * (it.price ?? 0))}</span> },
           ]}
           summary={() => (
             <Table.Summary.Row>
               <Table.Summary.Cell index={0} colSpan={4}><b>Tổng cộng</b></Table.Summary.Cell>
-              <Table.Summary.Cell index={1}><b>{fmtMoney(itemsTotal(items))}</b></Table.Summary.Cell>
+              <Table.Summary.Cell index={1} align="right"><b style={{ whiteSpace: 'nowrap' }}>{fmtMoney(itemsTotal(items))}</b></Table.Summary.Cell>
             </Table.Summary.Row>
           )}
         />
@@ -164,7 +164,7 @@ export function ProcessPage() {
 
       <Drawer
         open={!!selected}
-        width={600}
+        width={640}
         onClose={() => setParam('open')}
         title={selected ? `${getTemplate(selected.templateCode).name} · ${selected.code}` : ''}
         extra={selected && <WorkflowStatusTag status={selected.workflow.status} />}
@@ -177,11 +177,22 @@ export function ProcessPage() {
               size="small"
               bordered
               style={{ marginTop: 16 }}
+              styles={{ label: { width: 170 } }}
               items={[
-                ...getTemplate(selected.templateCode).fields.map((f) => ({ key: f.name, label: f.label, children: fieldValue(f, selected.data[f.name]) })),
+                ...getTemplate(selected.templateCode)
+                  .fields.filter((f) => f.kind !== 'items')
+                  .map((f) => ({ key: f.name, label: f.label, children: fieldValue(f, selected.data[f.name]) })),
                 { key: 'total', label: 'Giá trị đề xuất', children: <b>{fmtMoney(selected.amount)}</b> },
               ]}
             />
+            {getTemplate(selected.templateCode)
+              .fields.filter((f) => f.kind === 'items')
+              .map((f) => (
+                <div key={f.name} style={{ marginTop: 16 }}>
+                  <div style={{ fontWeight: 600, marginBottom: 8 }}>{f.label}</div>
+                  {fieldValue(f, selected.data[f.name])}
+                </div>
+              ))}
             <div style={{ margin: '16px 0' }}>
               <ApprovalActions wf={selected.workflow} onAct={(a, c) => actProposal(selected.id, a, c)} />
             </div>
