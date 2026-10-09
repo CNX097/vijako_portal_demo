@@ -23,8 +23,11 @@ Thư mục [`demo/`](demo/README.md) chứa bản demo giao diện (React + Type
 app launcher 20 module theo ảnh tham chiếu, **Nhân sự**, **Đơn từ**, **Chấm công** (GPS geofence + bảng công) và
 **Quy trình** (biểu mẫu động, luồng duyệt rẽ nhánh), đổi vai trò người dùng để thử toàn bộ luồng phê duyệt.
 
+**Xem trực tuyến:** https://cnx097.github.io/vijako_portal_demo/ — tự động build lại mỗi khi thư mục `demo/`
+thay đổi trên nhánh mặc định (workflow `.github/workflows/deploy-demo.yml`).
+
 ```bash
-cd demo && npm install && npm run dev   # http://localhost:5173
+cd demo && npm install && npm run dev   # chạy ở máy: http://localhost:5173
 ```
 
 ## Bản đồ module

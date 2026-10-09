@@ -28,6 +28,20 @@ Các lệnh khác:
 Bản build dùng hash router (`#/…`) nên có thể đưa thư mục `dist/` lên bất kỳ static host nào
 (GitHub Pages, Netlify, máy chủ nội bộ…) mà không cần cấu hình thêm.
 
+## Bản trực tuyến (GitHub Pages)
+
+**https://cnx097.github.io/vijako_portal_demo/**
+
+Workflow [`.github/workflows/deploy-demo.yml`](../.github/workflows/deploy-demo.yml) chạy mỗi khi có thay đổi trong
+`demo/` trên nhánh mặc định: cài đặt → chạy test → build → deploy lên GitHub Pages. Có thể chạy tay ở tab
+**Actions → Deploy demo to GitHub Pages → Run workflow**.
+
+Thiết lập một lần (cần quyền admin repo): **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+> Repo đang ở chế độ công khai nên trang demo cũng công khai với bất kỳ ai có link (đã đặt `noindex` để hạn chế
+> máy tìm kiếm). Muốn giới hạn người xem thì cần chuyển repo sang riêng tư với gói GitHub hỗ trợ Pages riêng tư,
+> hoặc triển khai `dist/` lên máy chủ nội bộ.
+
 ## Có gì trong demo
 
 | Màn hình | Thể hiện |
